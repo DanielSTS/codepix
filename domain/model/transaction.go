@@ -62,6 +62,13 @@ func (t *Transaction) isValid() error {
 	return nil
 }
 
+func (t *Transaction) Confirm() error {
+	t.Status = TransactionConfirmed
+	t.UpdatedAt = time.Now()
+	err := t.isValid()
+	return err
+}
+
 func (t *Transaction) Complete() error {
 	t.Status = TransactionCompleted
 	t.UpdatedAt = time.Now()
