@@ -19,9 +19,9 @@ type Bank struct {
 }
 
 func (bank *Bank) isValid() error {
-	_, error := govalidator.ValidateStruct(bank)
-	if error != nil {
-		return error
+	_, err := govalidator.ValidateStruct(bank)
+	if err != nil {
+		return err
 	}
 	return nil
 }
